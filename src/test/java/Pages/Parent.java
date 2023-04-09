@@ -11,15 +11,17 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
-public class Parent
-{
+public class Parent {
 
     WebDriverWait wait=new WebDriverWait(GWD.getDriver(),
-            Duration.ofSeconds(30));
+            Duration.ofSeconds(5));
 
     public void sendKeysFunction(WebElement element, String yazi)
     {
-        waitUntilVisible(element);
+        waitUntilVisible(element); // gözükene kadar bekle
+        scrollToElement(element);  // scroll yap
+        element.clear();           // temizle
+        element.sendKeys(yazi);    // gönder
     }
 
     public void clickFunction(WebElement element){
@@ -30,9 +32,9 @@ public class Parent
 
     public void verifyContainsTextFunction(WebElement element, String value){
         wait.until(ExpectedConditions.textToBePresentInElement(element, value));
-        Assert.assertTrue(element.getText().toLowerCase().contains(value.toLowerCase()),"bo such TEXT");
+        Assert.assertTrue(element.getText().toLowerCase().contains(value.toLowerCase()),"NO TEXT FOUND");
         new Actions(GWD.getDriver()).sendKeys(Keys.ESCAPE).perform();
-        // açık dialog kutusu varsa kapansın
+
     }
 
 

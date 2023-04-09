@@ -11,13 +11,13 @@ public class DialogContent extends Parent{
     }
 
     @FindBy (name = "username")
-    public WebElement username;
+    public WebElement usernameTB;
 
     @FindBy (name = "password")
-    public WebElement Password;
+    public WebElement passwordTB;
 
     @FindBy (xpath = "//button[@type='submit']")
-    public WebElement clicklogin;
+    public WebElement loginButton;
 
 
    @FindBy(xpath= "//button[normalize-space()='Add']")

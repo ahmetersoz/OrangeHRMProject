@@ -13,4 +13,8 @@ public class LeftNav extends Parent{
 
     @FindBy(xpath = "//a[@class='oxd-main-menu-item']")
     public WebElement Adminclick;
+
+    @FindBy(css = "div[class='oxd-sidepanel-header']")
+    public WebElement header;
+
 }
